@@ -22,13 +22,22 @@ export function Signin() {
         localStorage.setItem("token", jwt);
         navigate("/dashboard")
     }
-    return <div className="h-screen w-screen bg-gray-200 flex justify-center items-center">
+    return <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="bg-white rounded-xl border min-w-48 p-8">
             <Input reference={usernameRef} placeholder="Username" />
             <Input reference={passwordRef} placeholder="Password" />
             <div className="flex justify-center pt-4">
                 <Button onClick={signin} loading={false} variant="primary" text="Signin" fullWidth={true} />
             </div>
+        </div>
+        <div className="mt-4 text-center">
+            <span className="text-gray-600">Don't have an account?</span>
+            <button
+                className="ml-2 text-purple-600 hover:underline font-semibold"
+                onClick={() => navigate("/signup")}
+            >
+                Sign Up
+            </button>
         </div>
     </div>
 }
