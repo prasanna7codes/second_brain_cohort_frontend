@@ -6,7 +6,7 @@ import { PlusIcon } from "../icons/PlusIcon";
 //import { ShareIcon } from "../icons/ShareIcon";
 import { LogOut } from "../icons/LogOutIcon";
 
-import { Sidebar } from "../components/Sidebar";
+import { Sidebar } from "../components/SideBar";
 import { useContent } from "../hooks/useContent";
 import { BACKEND_URL } from "../config";
 import axios from "axios";
