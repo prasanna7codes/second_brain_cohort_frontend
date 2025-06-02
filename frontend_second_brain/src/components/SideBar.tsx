@@ -6,7 +6,7 @@ import { All } from "../icons/AllIcon";
 
 import { SidebarItem } from "./SidebarItem";
 
-export function Sidebar({ setFilterType }: { setFilterType: (type: "youtube" | "twitter" | "all" |"document") => void }) {
+export function SideBar({ setFilterType }: { setFilterType: (type: "youtube" | "twitter" | "all" |"document") => void }) {
     return <div className="h-screen bg-white border-r w-72 fixed left-0 top-0 pl-6">
         <div className="flex text-2xl pt-8 items-center">
             <div className="pr-2 text-purple-600">

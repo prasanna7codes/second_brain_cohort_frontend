@@ -6,7 +6,7 @@ import { PlusIcon } from "../icons/PlusIcon";
 //import { ShareIcon } from "../icons/ShareIcon";
 import { LogOut } from "../icons/LogOutIcon";
 
-import { Sidebar } from "../components/SideBar";
+import { SideBar } from "../components/SideBar";
 import { useContent } from "../hooks/useContent";
 import { BACKEND_URL } from "../config";
 import axios from "axios";
@@ -47,7 +47,7 @@ export function Dashboard() {
 
   return (
     <div>
-      <Sidebar setFilterType={setFilterType} />
+      <SideBar setFilterType={setFilterType} />
       <div className="p-4 ml-72 min-h-screen bg-gray-100 border-2">
          <div className="flex justify-end gap-4 mb-4">
         <Button
