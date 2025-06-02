@@ -19,8 +19,12 @@ export function Signin() {
                 password
             });
             const jwt = response.data.token;
-            localStorage.setItem("token", jwt);
-            navigate("/dashboard");
+            if (jwt) {
+                localStorage.setItem("token", jwt);
+                navigate("/dashboard");
+            } else {
+                alert(response.data.message || "Signin failed. Please check your credentials.");
+            }
         } catch (error) {
             alert("Signin failed. Please check your credentials.");
             console.error(error);
