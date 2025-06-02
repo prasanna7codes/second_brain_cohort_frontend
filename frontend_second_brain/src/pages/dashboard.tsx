@@ -37,13 +37,18 @@ export function Dashboard() {
         );
 
       const handleDelete = async (_id: string) => {
-    await axios.delete(`${BACKEND_URL}/content/${_id}`, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    });
-    refresh(); // Refresh the content list after deletion
-  };
+        try {
+          await axios.delete(`${BACKEND_URL}/content/${_id}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          });
+          refresh();
+        } catch (error) {
+          alert("Failed to delete content.");
+          console.error(error);
+        }
+      };
 
   return (
     <div>

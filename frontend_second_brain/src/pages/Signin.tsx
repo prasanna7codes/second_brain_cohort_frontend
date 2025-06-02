@@ -11,16 +11,20 @@ export function Signin() {
     const navigate = useNavigate();
 
     async function signin() {
-        const username = usernameRef.current?.value;
-        console.log(usernameRef.current)
-        const password = passwordRef.current?.value;
-        const response = await axios.post(BACKEND_URL + "/signin", {
-            username,
-            password
-        })
-        const jwt = response.data.token;
-        localStorage.setItem("token", jwt);
-        navigate("/dashboard")
+        try {
+            const username = usernameRef.current?.value;
+            const password = passwordRef.current?.value;
+            const response = await axios.post(BACKEND_URL + "/signin", {
+                username,
+                password
+            });
+            const jwt = response.data.token;
+            localStorage.setItem("token", jwt);
+            navigate("/dashboard");
+        } catch (error) {
+            alert("Signin failed. Please check your credentials.");
+            console.error(error);
+        }
     }
     return <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="bg-white rounded-xl border min-w-48 p-8">

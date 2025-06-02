@@ -6,14 +6,21 @@ export function useContent() {
     const [contents, setContents] = useState([]);
 
     function refresh() {
-        axios.get(`${BACKEND_URL}/content`, {
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem("token")}`
-            }
-        })
-        .then((response) => {
-            setContents(response.data.result) // Also, your backend sends {result: [...]}
-        })
+        try {
+            axios.get(`${BACKEND_URL}/content`, {
+                headers: {
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`
+                }
+            })
+            .then((response) => {
+                setContents(response.data.result)
+            })
+            .catch((error) => {
+                console.error("Failed to fetch content:", error);
+            });
+        } catch (error) {
+            console.error("Unexpected error in refresh:", error);
+        }
     }
 
     useEffect(() => {
